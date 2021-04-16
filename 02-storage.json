@@ -4,11 +4,11 @@
   "parameters": {
       "storageNames": {
           "type": "array",
-        //   "defaultValue": [
-        //     "contoso",
-        //     "fabrikam",
-        //     "coho"
-        //   ]
+          "defaultValue": [
+            "contoso",
+            "fabrikam",
+            "coho"
+          ]
       }
   },
   "resources": [
