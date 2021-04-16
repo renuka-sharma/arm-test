@@ -1,0 +1,33 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: 
+  vmImage: 'ubuntu-18.04'
+
+steps:
+# - task: AzureResourceManagerTemplateDeployment@3
+#   inputs:
+#     deploymentScope: 'Subscription'
+#     azureResourceManagerConnection: 'Visual Studio Enterprise Subscription – MPN(60fe8638-0b6f-4561-8d8b-39e0b0bb4a2e)'
+#     subscriptionId: '60fe8638-0b6f-4561-8d8b-39e0b0bb4a2e'
+#     location: 'West Europe'
+#     templateLocation: 'URL of the file'
+#     csmFileLink: 'https://github.com/rsharma222/arm-test/blob/master/02-storage.json'
+#     deploymentMode: 'Incremental'
+
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Visual Studio Enterprise Subscription – MPN(60fe8638-0b6f-4561-8d8b-39e0b0bb4a2e)'
+    subscriptionId: '60fe8638-0b6f-4561-8d8b-39e0b0bb4a2e'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'arm-introduction-01'
+    location: 'North Europe'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://github.com/rsharma222/arm-test/blob/master/02-storage.json'
+    deploymentMode: 'Incremental'
